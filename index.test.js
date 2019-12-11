@@ -9,7 +9,7 @@ test('returns current coordinates and count of dirt cleaned', () => {
 })
 
 test('returns true if coords passed are dirty', () => {
-  const dirtPositions = [[1, 0], [2, 2], [2, 3]]
-  const checkPosition = [2, 2]
+  const dirtPositions = [{ x: 1, y: 0 }, { x: 2, y: 2 }, { x: 2, y: 3 }]
+  const checkPosition = { x: 2, y: 2 }
   expect(index.isDirty(checkPosition, dirtPositions)).toEqual(true)
 })

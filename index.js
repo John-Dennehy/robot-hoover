@@ -1,8 +1,10 @@
 
-function output (x, y, dirtCount) {
+export function output (x, y, dirtCount) {
   const outputString = x + ' ' + y + '\n' + dirtCount
   console.log(outputString)
   return outputString
 }
 
-module.exports = output
+export function isDirty (x, y, dirtPostions) {
+  dirtPostions.includes([x, y])
+}

@@ -1,6 +1,8 @@
 
 function output (x, y, dirtCount) {
-  return x + ' ' + y + '\n' + dirtCount
+  const outputString = x + ' ' + y + '\n' + dirtCount
+  console.log(outputString)
+  return outputString
 }
 
 module.exports = output

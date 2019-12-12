@@ -5,7 +5,7 @@ describe('RobotHoover', () => {
   const dirtLocations = [{ x: 1, y: 0 }, { x: 2, y: 2 }, { x: 2, y: 3 }]
   const initialPosition = { x: 1, y: 2 }
   const instructions = 'NNESEESWNWW'
-  const hoover = new RobotHoover()
+  const hoover = new RobotHoover(initialPosition)
 
   it('returns current position', () => {
     expect(hoover.location()).toEqual({ x: 1, y: 2 })

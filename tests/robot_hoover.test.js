@@ -14,6 +14,12 @@ describe('RobotHoover', () => {
 
   it('to start with zero #dirtCollected', () => {
     expect(hoover.dirtCollected()).toEqual(0)
+    expect(hoover.dirtCollected()).not.toBeGreaterThan(0)
+  })
+
+  it('to increase #dirtCollected by 1 if position is dirty', () => {
+    const newHoover = new RobotHoover({ x: 2, y: 2 })
+    expect(newHoover.dirtCollected()).toEqual(1)
   })
 
   it('to return its location matching the inital position', () => {

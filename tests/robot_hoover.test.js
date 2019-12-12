@@ -10,4 +10,8 @@ describe('RobotHoover', () => {
   it('returns current position', () => {
     expect(hoover.location()).toEqual({ x: 1, y: 2 })
   })
+
+  it('does not return a different position', () => {
+    expect(hoover.location()).not.toEqual({ x: 10, y: 6 })
+  })
 })

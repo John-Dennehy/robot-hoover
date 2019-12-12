@@ -8,24 +8,26 @@ describe('RobotHoover', () => {
   const hoover = new RobotHoover(startPosition)
 
   it('returns current position', () => {
-    expect(hoover.location()).toEqual({ x: 1, y: 2 })
-    expect(hoover.location()).not.toEqual({ x: 0, y: 0 })
+    expect(hoover.position).toEqual({ x: 1, y: 2 })
+    expect(hoover.position).not.toEqual({ x: 0, y: 0 })
   })
 
   it('to start with zero #dirtCollected', () => {
-    expect(hoover.dirtCollected()).toEqual(0)
-    expect(hoover.dirtCollected()).not.toBeGreaterThan(0)
+    expect(hoover.dirtCollected).toEqual(0)
+    expect(hoover.dirtCollected).not.toBeGreaterThan(0)
   })
 
   it('to increase #dirtCollected by 1 if position is dirty', () => {
-    const newHoover = new RobotHoover({ x: 2, y: 2 })
-    expect(newHoover.dirtCollected()).toEqual(1)
+    const hoover = new RobotHoover({ x: 2, y: 2 })
+    hoover.setDirtyAreas(dirtLocations)
+    hoover.checkForDirt()
+    expect(hoover.dirtCollected).toEqual(1)
   })
 
   it('to return its location matching the inital position', () => {
     const initialPosition = { x: 0, y: 0 }
-    const newHoover = new RobotHoover(initialPosition)
-    expect(newHoover.location()).toEqual({ x: 0, y: 0 })
-    expect(newHoover.location()).not.toEqual({ x: 1, y: 2 })
+    const hoover = new RobotHoover(initialPosition)
+    expect(hoover.position).toEqual({ x: 0, y: 0 })
+    expect(hoover.position).not.toEqual({ x: 1, y: 2 })
   })
 })

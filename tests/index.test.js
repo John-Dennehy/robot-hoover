@@ -1,4 +1,4 @@
-import * as index from './index.js'
+import * as index from '../index.js'
 
 test('returns current coordinates and count of dirt cleaned', () => {
   const x = 1

@@ -20,7 +20,8 @@ line)
 
 
 ### Output
-location: STDOUT of terminal or console.log if browser based
+location: STDOUT of terminal or console.log if browser based AND output a text file so it can automatically checked
+
 format example:
 ```
 1 3

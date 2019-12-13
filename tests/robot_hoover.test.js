@@ -1,37 +1,50 @@
 import RobotHoover from '../lib/robot_hoover'
 
 describe('RobotHoover', () => {
-  const grid = { x: 5, y: 5 }
-  const dirtLocations = [{ x: 1, y: 0 }, { x: 2, y: 2 }, { x: 2, y: 3 }]
-  const startPosition = { x: 1, y: 2 }
-  const hoover = new RobotHoover(startPosition)
+  const hoover = new RobotHoover()
 
-  describe('#postion', () => {
-    it('returns current position', () => {
-      expect(hoover.position).toEqual({ x: 1, y: 2 })
-      expect(hoover.position).not.toEqual({ x: 0, y: 0 })
+  describe('#setRoomDimensions', () => {
+    it("returns {x: 5, y: 5} when passed '5 5'", () => {
+      const dimension = hoover.setRoomDimensions('5 5')
+      expect(dimension.x).toEqual(5)
+      expect(dimension.y).toEqual(5)
     })
 
-    it('returns its location matching the inital position', () => {
-      const initialPosition = { x: 0, y: 0 }
-      const hoover = new RobotHoover(initialPosition)
-      expect(hoover.position).toEqual({ x: 0, y: 0 })
-      expect(hoover.position).not.toEqual({ x: 1, y: 2 })
+    it("returns {x: 2, y: 3} when pass '2 3'", () => {
+      const dimension = hoover.setRoomDimensions('2 3')
+      expect(dimension.x).toEqual(2)
+      expect(dimension.y).toEqual(3)
+      expect(dimension.x).not.toEqual(5)
+      expect(dimension.y).not.toEqual(5)
+    })
+  })
+
+  describe('#setInitialPostion', () => {
+    it("returns {x: 1, y: 2} when passed '1 2'", () => {
+      const position = hoover.setInitialPosition('1 2')
+      expect(position).toEqual({ x: 1, y: 2 })
+      expect(position).not.toEqual({ x: 0, y: 0 })
+    })
+
+    it("returns {x: 1, y: 2} when passed '1 2'", () => {
+      const position = hoover.setInitialPosition('1 2')
+      expect(position).not.toEqual({ x: 0, y: 0 })
+      expect(position).toEqual({ x: 1, y: 2 })
     })
   })
 
-  describe('#dirtCollected', () => {
-    it('starts with zero #dirtCollected', () => {
-      expect(hoover.dirtCollected).toEqual(0)
-      expect(hoover.dirtCollected).not.toBeGreaterThan(0)
-    })
+  // describe('#dirtCollected', () => {
+  //   it('starts with zero #dirtCollected', () => {
+  //     expect(hoover.dirtCollected).toEqual(0)
+  //     expect(hoover.dirtCollected).not.toBeGreaterThan(0)
+  //   })
 
-    it('increases #dirtCollected by 1 if position is dirty', () => {
-      const hoover = new RobotHoover({ x: 2, y: 2 })
-      expect(hoover.dirtCollected).toEqual(0)
-      hoover.setDirtyAreas(dirtLocations)
-      hoover.checkForDirt()
-      expect(hoover.dirtCollected).toEqual(1)
-    })
-  })
+  //   it('increases #dirtCollected by 1 if position is dirty', () => {
+  //     expect(hoover.dirtCollected).toEqual(0)
+  //     hoover.setDirtyPatches('2 1')
+  //     hoover.moveTo({ x: 2, y: 1 })
+  //     hoover.checkForDirt()
+  //     expect(hoover.dirtCollected).toEqual(1)
+  //   })
+  // })
 })

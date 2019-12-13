@@ -40,6 +40,12 @@ describe('RobotHoover', () => {
     })
   })
 
+  describe('#checkForWall', () => {
+    it('returns', () => {
+
+    })
+  })
+
   // describe('#dirtCollected', () => {
   //   it('starts with zero #dirtCollected', () => {
   //     expect(hoover.dirtCollected).toEqual(0)

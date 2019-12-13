@@ -1,16 +1,9 @@
+#!/usr/bin/env node
+const RobotHoover = require('./lib/robot_hoover')
+const Input = require('./lib/input')
 
-export function output(x, y, dirtCount) {
-  const outputString = x + ' ' + y + '\n' + dirtCount
-  console.log(outputString)
-  return outputString
-}
-
-export function isDirty(coords, dirtPositions) {
-  let output = false
-  dirtPositions.forEach(function (value) {
-    if (value.x === coords.x && value.y === coords.y) {
-      output = true
-    }
-  })
-  return output
+function run () {
+  const hoover = new RobotHoover()
+  hoover.getInstructions()
+  hoover.runRoute()
 }

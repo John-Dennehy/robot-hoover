@@ -35,6 +35,13 @@ describe('RobotHoover', () => {
     })
   })
 
+  describe('#setRoute', () => {
+    it("returns ['N', 'E', 'S', 'W'] when hoover passed 'NESW'", () => {
+      hoover.setRoute('NESW')
+      expect(hoover.route).toEqual(['N', 'E', 'S', 'W'])
+    })
+  })
+
   // describe('#dirtCollected', () => {
   //   it('starts with zero #dirtCollected', () => {
   //     expect(hoover.dirtCollected).toEqual(0)

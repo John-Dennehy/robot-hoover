@@ -13,5 +13,5 @@ git clone https://github.com/JDtheGeek/robot-hoover.git
 ## Running the code
 ```
 cd robot-hoover
-node -r ./index.js
+node index.js
 ```

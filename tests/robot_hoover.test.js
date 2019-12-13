@@ -24,14 +24,12 @@ describe('RobotHoover', () => {
       hoover.setInitialPosition('1 2')
       expect(hoover.position).toEqual({ x: 1, y: 2 })
       expect(hoover.position).not.toEqual({ x: 0, y: 0 })
-      expect(hoover.position).toEqual({ x: 1, y: 2 })
     })
 
     it("returns {x: 2, y: 3} when passed '2 3'", () => {
       hoover.setInitialPosition('2 3')
       expect(hoover.position).toEqual({ x: 2, y: 3 })
       expect(hoover.position).not.toEqual({ x: 0, y: 0 })
-      expect(hoover.position).toEqual({ x: 2, y: 3 })
     })
   })
 

@@ -18,6 +18,8 @@ async function startHoover(filePath = './input.txt') {
     console.log(`Reading instructions from ${filePath}`, '\n' + fileContent)
     setInstructions(fileContent)
     runRoute()
+    output(hooverPosition.x, hooverPosition.y, dirtCollected)
+    console.log()
   } catch (err) {
     console.error(err)
   }
@@ -77,6 +79,7 @@ function move(direction) {
   }
   hooverPosition = checkForWall(hooverPosition)
   console.log(hooverPosition)
+  vacuum()
   return hooverPosition
 }
 
@@ -110,4 +113,11 @@ function isDirty() {
 function setDirtyPatches(array) {
   dirtyPatches = array
   return array
+}
+
+function output(x, y, dirtArray) {
+  const dirtCount = dirtArray.length
+  const outputString = x + ' ' + y + '\n' + dirtCount
+  console.log('Output:', '\n' + outputString)
+  return outputString
 }

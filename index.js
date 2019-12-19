@@ -4,25 +4,27 @@ const util = require('util')
 const readFile = util.promisify(fs.readFile)
 const RobotHoover = require('./lib/robot_hoover')
 
-async function getInput(filePath = './input.txt') {
+async function startHoover(filePath = './input.txt') {
   try {
+    const hoover = new RobotHoover()
     const fileContent = await readFile(filePath, 'utf8')
-    console.log(fileContent)
-    createInstructions(fileContent)
+    console.log(`Reading instructions from ${filePath}`, '\n' + fileContent)
+    hoover.setInstructions(fileContent)
+    console.log(hoover)
+    return hoover
   } catch (err) {
     console.error(err)
   }
 }
 
 function createInstructions(fileContent) {
-  console.log('creating instructions from: ', fileContent)
+
 }
 
 function start() {
   console.log('Started...')
-  getInput()
-  // const hoover = new RobotHoover()
-  // console.log('Reading input.txt file')
+  const hoover = startHoover()
+  console.log(hoover)
   // console.log('Following route')
   // hoover.runRoute()
   // console.log('Finished')
